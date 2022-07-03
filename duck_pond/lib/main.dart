@@ -30,10 +30,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late TextEditingController _controller;
+
+  List<String> messages = [];
+
   final TextStyle inputStyle = const TextStyle(
     fontSize: 32,
     color: Colors.blueGrey,
   );
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  void onSubmitted(String value) {
+    setState(() {
+      messages.add(value);
+      _controller.clear();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +64,30 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: ListView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: messages.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Text(messages[index],
+                      style: const TextStyle(fontSize: 32));
+                },
+              ),
+            ),
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: TextField(
-                  decoration:
-                      const InputDecoration(border: OutlineInputBorder()),
+                  controller: _controller,
+                  decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                        icon: const Icon(
+                          Icons.send,
+                          color: Colors.green,
+                        ),
+                        onPressed: () => onSubmitted(_controller.value.text),
+                      )),
                   style: inputStyle,
                 ))
           ],
