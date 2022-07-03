@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "317142953779",
+    "project_id": "uh-duckpond",
+    "storage_bucket": "uh-duckpond.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317142953779:android:d0b5b0183cf503c6b85846",
+        "android_client_info": {
+          "package_name": "com.example.duck_pond"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317142953779-15er7umggdk0b12r3b5hg8crhnf7a8j2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkRiQRBc2DbieeiunldLD5LAtPYU3e09I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317142953779-15er7umggdk0b12r3b5hg8crhnf7a8j2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
